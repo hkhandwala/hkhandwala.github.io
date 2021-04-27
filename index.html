@@ -67,7 +67,7 @@
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/CS424 P2.png" alt="" /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
-                            <h4 class="text-black>"> <b><u> Project 2 </u></b></h4>
+                            <h4 class="text-black>"> <b><u> Project 2 - Raw Power</u></b></h4>
                             <p class="text-black mb-0"> 
                                 <b>Introduction</b>
                             </p>
@@ -316,22 +316,88 @@
                 </center>
                 
                 <!-- Start of Project Three Row-->
-                <div class="row justify-content-center no-gutters">
-                    <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="" /></div>
-                    <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white">Project 3</h4>
-                                    <p class="mb-0 text-white-50">Coming Soon!</p>
-                                    <hr class="d-none d-lg-block mb-0 mr-0" />
-                                </div>
-                            </div>
+                <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+                    <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/CS424P3.png" alt="" /></div>
+                    <div class="col-xl-4 col-lg-5">
+                        <div class="featured-text text-center text-lg-left">
+                            <h4 class="text-black>"> <b><u> Project 3 - We've Got The Power </u></b></h4>
+                            <p class="text-black mb-0"> 
+                                <b>Introduction</b>
+                            </p>
+                            <p class="text-black mb-0"> 
+                                I will be going over the details of Project 3 in this write up. The goal of the project is to visualize data from the census block and tract to look at data from a specific area, whether it be a neighborhood or a city. The data and sources are linked and explained more below, and they were initially provided by Professor Johnson. This project only uses R as the programming language and was developed in RStudio. The final application is not published on ShinyApps.io but can be on your own. Right now, the application runs at a local level only.
+                            </p>
                         </div>
                     </div>
                 </div>
+                <div>
+                    <p class="text-black mb-0"> 
+                        <b>3 Parts' Objectives (How To Use)</b>
+                    </p>
+                    <p class="text-black mb-0"> 
+                        <u>Part 1:</u> The second page, first part, of this ShinyApps application showcases the map of Chicago. Here, you can view the Energy usage (Electricity or Gas), Building details (Age or Height) or Total population graphed on the map of Chicago and the legend is visible on the top right-hand side. The graph plots the locations of all buildings in the Near Westside Community Area in Chicago, Illinois in 2010. There are multiple filter options including Electricity usage, Gas usage, Building Age, Building Height and Total Population. You can also filter by the month specifically for the previously mentioned filters. You can also filter the data with a specific kind of building including Residential, Commercial, Industrial or use the default “All” option.  
+                    </p>
+                    <p> </p>
+                    <p class="text-black mb-0">
+                        <u>Part 2:</u> The second page lets you compare two different community areas during 2010 using multiple filters. The filters options include Electricity usage, Gas usage, Building Age, Building Height and Total Population. You can also filter by the month specifically for the previously mentioned filters. You can also filter the data with a specific kind of building including Residential, Commercial, Industrial or use the default “All” option. You also have the option to compare a specific area with all the communities using the “All” option. There are so many combinations possible using numerous filters and communities given. 
+                    </p>
+                    <p> </p>
+                    <p class="text-black mb-0">
+                        <u>Part 3:</u> The third page lets you view and pan all of the locations in the Chicagoland area. Again, you have the option to filter the data by Electricity usage, Gas usage, Building Age, Building Height and Total Population. You can also filter by the month specifically for the previously mentioned filters. You can also filter the data with a specific kind of building including Residential, Commercial, Industrial or use the default “All” option. The Chicago map layout is zoomable, pannable and resettable just like the other maps in the other parts. You can view the legend on the top right again as the locations are filtered. 
+
+                        In all 3 parts, you can zoom in and zoom out of the map as you wish. You can also change the map type by pressing the stacked button of the left side of the map, under the zoom in and zoom out feature. 
+                        
+                    </p>
+                    <p> </p>
+                </div>
+
+                <div>
+                    <p class="text-black mb-0"> 
+                        <b>Data Description</b>
+                    </p>
+                    <p class="text-black mb-0"> 
+                        The data is from data.cityofchicago.org/Environment-Sustainable-Development/Energy-Usage-2010/8yq3-m6wp. The file was originally 26 MB, but I got it down to about 12 MB by removing the unnecessary statistical columns. So only the Electrical usage, for each month and the total; the gas usage, for each month and total; building height (average stories); building age (average age), and the Total population. I also changed the Energy_Usage_2010.csv "Census Block" column cell format to integers. It previously showed the "Census Block" column in scientific notation. NOTE, (this is very important), you MUST change the "Census Block" column cell format before you delete all the columns not listed as kept above. Otherwise, Excel will be funny and round the scientific notation numbers to 5 decimal places. And you end up scratching your head as to why you code stopped working even though it looks right. So, format the "Census Block" cells FIRST. And that's how I edited the Chicago data outside of RStudio using Excel. Next I loaded this data into RStudio using the read CSV function. I then relabeled the "Census Block" column to GEOID10, because otherwise it would be difficult and pointlessly hard to implement the merge function to work with the 2 different datasets. And here's the 2nd dataset. I pretty much used the tigris package to get the IL and Cook county blocks. I then filtered out only the blocks that were inside of Chicago. And that's pretty much it for what I did with the 2nd dataset. Now for the 3rd and final dataset, the tracts. I used the tracts function from Tigris to download the tracts data, and that's as much as I got done with the 3rd dataset.  
+                    </p>
+                    <p> </p>
+                </div>
+<!--
+                <div>
+                    <p class="text-black mb-0"> 
+                        <b>Interesting Things</b>
+                    </p>
+                    <p class="text-black mb-0"> 
+                        There were a very few things I found interesting at the beginning of the project as I only started a few days before the project was due. It’s not that I procrastinated but that I’m enrolled in 21 credit hours as a last-semester Senior student. So, I literally have something due every day, including weekend. There were way too many bugs to begin with at the start of my project. It took me an entire day to just process and import the data correctly to the RStudio environment. However, when things started to work, I was very happy. Within the data specifically, the first thing that shocked me was the abundance of the data points within the Excel files I first downloaded. Literally, you name it, they have it type of data. I noticed how there are no Geothermal plants in Illinois. Wind, Gas and Oil are the top 3 energy sources in Illinois. There was only 1 solar energy plant in 2010 and an increase to a total of 5 in 2018 in Illinois. This was probably the biggest shocker for me for Illinois. I was really disappointed in the underwhelming number and lack of the Solar Energy Plants in Illinois. Alaska, Washington DC, North Dakota, New Hampshire and West Virginia all do not have any Solar Energy plants. Solar Energy had the highest increase in the number of energy plants from 2010 to 2018.
+                    </p>
+                    <p> </p>
+                </div>
+            -->
+
+                <div>
+                    <p class="text-black mb-0"> 
+                        <b>Links and Instructions</b>
+                    </p>
+                    <p class="text-black mb-0"> 
+                        To replicate this project onto your own computer, start by downloading RStudio (I have version 1.4, but the latest version should work as well). Download the necessary data files and the application code from my GitHub (link below). If you want to make your own adjustments to the data, download the data from epa.gov/egrid/download-data. Store the data files and the .R code file in the same folder and open with RStudio. In the RStudio terminal/console, you will need to download the libraries that I used. You can do that with the <i> install.packages(“libraryNameIUsed”) </i> command. To create your own web application through ShinyApps, you will need to create your own account on their website: shiny.rstudio.com. Then connect your ShinyApps account to RStudio in the RStudio publishing settings. After connecting, you can post your application to ShinyApps through RStudio by clicking the blue icon next to Run App. 
+                    </p>
+                    <p> </p>
+                    <p class="text-black mb-0"> 
+                        <a href="https://github.com/hkhandwala/424P3">GitHub Repo Link</a>
+                    </p>
+                    <p class="text-black mb-0"> 
+                        Download GitHub code to run application locally.
+                    </p>
+                    <!--
+                    <p class="text-black mb-0"> 
+                        <a href="https://youtu.be/wCZk27t1gfw">YouTube Video Demonstration Link</a>  
+                    </p>
+                    -->
+                    <p> </p>
+                    <p> </p>
+                    <p> </p>
+                </div>
             </div>
         </section>
+    
         <!-- Signup-->
         <section class="signup-section" id="signup">
             <div class="container">
